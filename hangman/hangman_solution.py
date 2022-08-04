@@ -90,15 +90,18 @@ class Hangman:
         
 
     def ask_letter(self):
-        letter = eval(input('Please guess a letter.'))
-
-        if len(letter) != 1:
-            print('Please enter just one charachter.')
-        elif letter in self.list_letters:
-            letter = input(f'{letter} has already been tried.')
-        else:
+            
+        while True:
             letter = eval(input('Please guess a letter.'))
-            Hangman.check_letter()
+            print(f'{letter}')
+
+            if len(letter) != 1:
+                print('Please enter just one charachter.')
+            elif letter in self.list_letters:
+                print(input(f'{letter} has already been tried.'))
+            else:
+                eval(input('Please guess a letter.'))
+                Hangman.check_letter()
             
         '''
         Asks the user for a letter and checks two things:
@@ -116,7 +119,8 @@ class Hangman:
 def play_game(word_list):
     # As an aid, part of the code is already provided:
     game = Hangman(word_list, num_lives=5)
-    word = random.choice(word_list)
+    word = word_list(random.choice)
+    num_lives = 5 
 
     if word_list == word_list:
         
@@ -136,4 +140,4 @@ def play_game(word_list):
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
     play_game(word_list)
-    num_lives = 5
+
