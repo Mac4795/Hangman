@@ -90,9 +90,11 @@ class Hangman:
         
 
     def ask_letter(self):
-            
+        letter = eval(input('Please guess a letter.'))
+        letter = letter.lower()
+
         while True:
-            letter = eval(input('Please guess a letter.'))
+            
             print(f'{letter}')
 
             if len(letter) != 1:
@@ -101,8 +103,8 @@ class Hangman:
                 print(input(f'{letter} has already been tried.'))
             else:
                 eval(input('Please guess a letter.'))
-                Hangman.check_letter()
-            
+                Hangman.check_letter() == letter
+            break 
         '''
         Asks the user for a letter and checks two things:
         1. If the letter has already been tried
@@ -119,14 +121,14 @@ class Hangman:
 def play_game(word_list):
     # As an aid, part of the code is already provided:
     game = Hangman(word_list, num_lives=5)
-    word = word_list(random.choice)
+    #word = word_list(random.choice)
     num_lives = 5 
 
     if word_list == word_list:
         
         #Hangman.ask_letter()
     
-        print(f'You ran out of live. The word was {word}')
+        #print(f'You ran out of live. The word was {word}')
     # TODO 1: To test this task, you can call the ask_letter method
     # TODO 2: To test this task, upon initialization, two messages should be printed 
     # TODO 3: To test this task, you call the ask_letter method and check if the letter is in the word
