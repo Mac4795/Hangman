@@ -18,7 +18,7 @@ class Hangman:
 
     def check_letter(self, letter):
         if letter.lower() in self.word: 
-            print('The letter is in the word, guess another.')
+            print(f'Yes! {letter} is in the word, guess another.')
             print(self.word_guessed)
             
             self.list_letters.append(letter)
