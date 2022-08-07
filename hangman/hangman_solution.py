@@ -17,11 +17,15 @@ class Hangman:
         print(f'{self.word_guessed}')
 
     def check_letter(self, letter):
-        if letter.lower() in self.word: 
+        if letter.lower() in self.word:
+            for i, character in enumerate(self.word):
+                if character == letter:
+                    self.word_guessed[i] = letter
             print(f'Yes! {letter} is in the word, guess another.')
             print(self.word_guessed)
             
             self.list_letters.append(letter)
+            self.num_letters -= 1
         else: 
             self.num_lives -= 1
             print('The letter is not in the word, guess again. ')
@@ -41,14 +45,15 @@ class Hangman:
 def play_game(word_list):
     game = Hangman(word_list, num_lives=5)
 
-    while True:
+    while game:
+        game.ask_letter()
         if game.num_lives == 0:
             print(f'Oh no! You ran out of lives. The word was {game.word}')
             break
-        elif game.num_letters > 0:
-            game.ask_letter()
-        else:
+
+        elif game.num_letters == 0:
             print(f'Congratulations, you got it right! The word was {game.word}')
+            break
 
 if __name__ == '__main__':
     word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
