@@ -1,7 +1,4 @@
 import random
-from random import *
-
-from pip import main
 
 class Hangman:
 
