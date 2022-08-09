@@ -1,11 +1,11 @@
-from random
+import random
 
 class Hangman:
 
     def __init__(self, word_list, num_lives=5):
         self.word_list = word_list
         self.num_lives = num_lives
-        self.word = self.word_list[random.choice(0,len(word_list) - 1)]
+        self.word = random.choice(word_list)
         self.word_guessed = len(self.word) * ['_']
         self.num_letters = len(set(self.word))
         self.list_letters = []
