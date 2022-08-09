@@ -1,4 +1,4 @@
-import random
+from random import *
 
 class Hangman:
 
